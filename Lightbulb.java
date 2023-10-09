@@ -1,6 +1,12 @@
 import static java.lang.Math.pow;
 import java.util.Scanner;
 
+/*
+ * Class: Lightbulb
+ * By Aaron Hoffman
+ * Created as a demo for AP CS on 10/8/23
+ */
+
 public class Lightbulb {
     //This class creates a model of a Lightbulb, and can be turned on or off, 
     //  which affects its tempersature.
@@ -8,18 +14,24 @@ public class Lightbulb {
     public static void main(String[] args) {
         //Main method initialized stuff and starts the while loop
         Lightbulb bulb = new Lightbulb("test");
-        System.out.println("Choose a command: status, change");
+        System.out.println("Choose a command: status, change (s/c):");
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.print("Command: ");
-            Scanner scanner = new Scanner(System.in);
             String command = scanner.nextLine();
-            if (command.equals("status")) {
+            if (command.equals("s")) {
                 bulb.printStatus(bulb);
             }
-            else if (command.equals("change")) {
+
+            else if (command.equals("c")) {
                 bulb.changeStatus(bulb);
             }
+
+            else if (command.equals("exit")) {
+                break;
+            }
         } 
+        scanner.close();
     }
 
     private boolean bulb_status;
